@@ -1,0 +1,131 @@
+    Biểu đồ phân tán (scatter plot) là một công cụ mạnh mẽ trong phân tích dữ liệu, đặc biệt hữu ích khi 
+cần khám phá mối quan hệ giữa hai biến số liên tục. Trong bài báo cáo này, việc sử dụng biểu đồ phân tán giữa 'Doanh thu' và 'Ngân sách' là một bước 
+quan trọng để phân tích và hiểu rõ hơn về sự tương quan giữa các yếu tố này trong các bộ phim.
+
+1. Mục tiêu sử dụng biểu đồ phân tán: Biểu đồ phân tán giữa 'Doanh thu' và 'Ngân sách' giúp người 
+phân tích dữ liệu trả lời câu hỏi liệu có sự tương quan nào giữa mức ngân sách chi cho việc sản xuất 
+bộ phim và mức doanh thu mà bộ phim đó có thể thu về. Cụ thể:
+    - Tương quan giữa ngân sách và doanh thu: Theo lý thuyết, các bộ phim có ngân sách lớn hơn 
+        thường có khả năng mang lại doanh thu cao hơn, tuy nhiên, điều này không phải luôn luôn đúng. 
+        Có những bộ phim với ngân sách thấp nhưng lại đạt được doanh thu lớn, và ngược lại.
+    - Khám phá các ngoại lệ: Biểu đồ phân tán cũng giúp ta phát hiện những bộ phim ngoài lề (outliers), 
+        ví dụ như các bộ phim có ngân sách nhỏ nhưng lại đạt được doanh thu cực kỳ cao (thường là các 
+        phim có yếu tố bất ngờ hoặc mang tính đột phá về mặt nội dung hoặc marketing).
+
+2. Phân tích trực quan với biểu đồ phân tán: Biểu đồ phân tán sẽ vẽ từng điểm dữ liệu (mỗi bộ phim) 
+lên đồ thị với trục x là Ngân sách và trục y là Doanh thu. Mỗi điểm trên biểu đồ đại diện cho một 
+bộ phim, cho phép trực quan hóa:
+    - Mối quan hệ tuyến tính: Nếu các điểm dữ liệu trên biểu đồ tập trung theo một đường chéo, 
+    điều này cho thấy sự tương quan tuyến tính giữa ngân sách và doanh thu.
+    - Mối quan hệ không tuyến tính: Nếu các điểm phân tán một cách không đều hoặc theo một xu hướng 
+    không rõ ràng, có thể thấy rằng yếu tố ngân sách không phải là yếu tố duy nhất ảnh hưởng đến 
+    doanh thu.
+    - Ngoại lệ và các mô hình khác: Biểu đồ phân tán có thể giúp phát hiện các ngoại lệ, ví dụ như 
+    những bộ phim có ngân sách thấp nhưng doanh thu cao (hoặc ngược lại), từ đó đưa ra các phân tích 
+    sâu hơn về yếu tố quyết định thành công của bộ phim ngoài ngân sách.
+
+3. Lợi ích khi sử dụng biểu đồ phân tán: Việc sử dụng biểu đồ phân tán để phân tích 'Doanh thu' và 
+'Ngân sách' mang lại những lợi ích sau:
+    - Nhận diện mối quan hệ giữa hai biến: Biểu đồ giúp nhận diện ngay lập tức mối quan hệ giữa ngân 
+    sách và doanh thu mà không cần phải tính toán phức tạp. Nếu thấy xu hướng rõ ràng, có thể 
+    lập tức kết luận về sự tương quan giữa chúng.
+    - Tìm kiếm những yếu tố ảnh hưởng đến thành công của bộ phim: Bằng cách quan sát phân bố của 
+    các điểm, người phân tích có thể suy ra các yếu tố khác có thể ảnh hưởng đến doanh thu, ví dụ 
+    như thể loại phim, đạo diễn, marketing, hay các yếu tố văn hóa xã hội.
+    - Dễ dàng trực quan hóa và trình bày: Biểu đồ phân tán giúp người xem dễ dàng hiểu được dữ liệu 
+        và những phát hiện quan trọng mà không cần phải giải thích quá nhiều bằng lý thuyết.
+
+4. Kết luận: 
+    - Biểu đồ phân tán giữa Doanh thu và Ngân sách là một công cụ hiệu quả trong việc phân tích
+    mối quan hệ giữa hai yếu tố này. Việc sử dụng biểu đồ giúp người phân tích nhanh chóng nhận diện 
+    các xu hướng chính và các ngoại lệ, từ đó rút ra các kết luận có giá trị về sự tương quan giữa ngân 
+    sách sản xuất và doanh thu của các bộ phim. Thời gian thực thi cũng cho thấy mức độ phức tạp của 
+    việc vẽ biểu đồ và giúp đánh giá hiệu quả của ứng dụng phân tích dữ liệu.
+    - Biểu đồ phân tán là một công cụ đơn giản nhưng mạnh mẽ trong việc hỗ trợ các quyết định dựa 
+    trên dữ liệu và cung cấp cái nhìn trực quan, dễ hiểu về mối quan hệ giữa các yếu tố quan trọng 
+    trong việc sản xuất và phân phối phim.
+
+
+
+
+    Biểu đồ pairplot là một công cụ rất hữu ích trong phân tích dữ liệu, đặc biệt khi cần khám phá mối 
+quan hệ giữa nhiều biến số liên tục trong một lần duy nhất. Trong trường hợp của báo cáo này, việc sử 
+dụng biểu đồ pairplot giữa các cột số như Độ phổ biến, Ngân sách, Doanh thu, Thời lượng, Số lượt bình 
+chọn, Điểm trung bình, Ngân sách điều chỉnh, và Doanh thu điều chỉnh giúp phân tích mối quan hệ giữa 
+các yếu tố này trong các bộ phim.
+
+1. Mục tiêu sử dụng biểu đồ pairplot
+    - Biểu đồ pairplot được sử dụng để trực quan hóa mối quan hệ giữa các cột số trong dữ liệu. Mỗi 
+    cặp biến sẽ được vẽ một biểu đồ phân tán (scatter plot), cho phép chúng ta nhận diện được:
+        + Tương quan giữa các biến: Biểu đồ giúp nhận diện mối quan hệ giữa các cột số trong bộ dữ liệu, 
+        như có sự tương quan mạnh hay yếu giữa Ngân sách và Doanh thu, hay giữa Điểm trung bình và 
+        Số lượt bình chọn.
+        + Hiện tượng ngoại lệ: Các điểm dữ liệu ngoài lề (outliers) dễ dàng được phát hiện trong các 
+        biểu đồ phân tán, giúp chúng ta hiểu rõ hơn về những bộ phim có các đặc điểm khác biệt, chẳng 
+        hạn như một bộ phim có ngân sách thấp nhưng lại có doanh thu cao.
+        + Mối quan hệ phi tuyến tính: Pairplot không chỉ giúp nhận diện mối quan hệ tuyến tính mà còn 
+        giúp phát hiện các mối quan hệ phi tuyến tính hoặc những biến có ảnh hưởng không rõ ràng.
+
+2. Phân tích trực quan với pairplot
+    - Việc sử dụng pairplot có thể giúp người phân tích nhận diện các thông tin sau:
+        + Mối quan hệ giữa các cột: Ví dụ, ta có thể nhận thấy rằng giữa Ngân sách và Doanh thu có 
+        một mối quan hệ rõ ràng, với những bộ phim có ngân sách cao thường thu về doanh thu cao. 
+        Tuy nhiên, mối quan hệ này có thể không phải lúc nào cũng đúng đối với tất cả các bộ phim.
+        + Hiện tượng phân tán: Các biểu đồ phân tán có thể cho thấy rằng mặc dù có sự tương quan giữa 
+        các yếu tố, nhưng không phải tất cả các bộ phim đều tuân theo quy luật này. Một số bộ phim có 
+        thể có doanh thu cao bất chấp ngân sách khiêm tốn, hoặc ngược lại.
+        + Phân phối và sự phân tán của dữ liệu: Cột như Số lượt bình chọn và Điểm trung bình có thể 
+        cho thấy rằng các bộ phim được bình chọn nhiều có xu hướng đạt điểm cao hơn, trong khi những 
+        bộ phim ít được chú ý lại có điểm số thấp hơn.
+        
+3. Lợi ích khi sử dụng pairplot
+    - Việc sử dụng pairplot đem lại một số lợi ích quan trọng:
+        + Khám phá mối quan hệ giữa nhiều biến đồng thời: Thay vì phải vẽ từng biểu đồ phân tán cho 
+        từng cặp biến, pairplot giúp nhanh chóng đánh giá mối quan hệ giữa tất cả các cột số trong 
+        một ma trận duy nhất. Điều này tiết kiệm thời gian và công sức trong việc khám phá dữ liệu.
+        + Phát hiện mối quan hệ phi tuyến tính: Pairplot không chỉ giúp phát hiện mối quan hệ tuyến 
+        tính mà còn giúp nhận diện những mối quan hệ phức tạp hơn, như mối quan hệ hình parabol hay các
+         mối quan hệ có độ dốc thay đổi.
+        + Dễ dàng trực quan hóa dữ liệu: Cái nhìn tổng quan về mối quan hệ giữa các cột số trong dữ 
+        liệu giúp người phân tích đưa ra các kết luận và quyết định tiếp theo một cách rõ ràng và dễ hiểu.
+
+4. Kết luận
+    Biểu đồ pairplot là một công cụ tuyệt vời để khám phá mối quan hệ giữa nhiều biến số trong dữ liệu, 
+    giúp nhận diện các xu hướng, tương quan, và các ngoại lệ. Trong báo cáo này, việc sử dụng pairplot 
+    giúp trực quan hóa mối quan hệ giữa các cột số như Ngân sách, Doanh thu, Số lượt bình chọn, và Điểm 
+    trung bình. Thời gian thực thi có thể dài, nhưng với số lượng biểu đồ lớn, mỗi biểu đồ riêng biệt 
+    vẫn có thể được vẽ nhanh chóng, giúp người phân tích có cái nhìn tổng thể về dữ liệu một cách nhanh 
+    chóng và dễ dàng.
+
+
+    Ma trận tương quan là một công cụ quan trọng trong phân tích dữ liệu, giúp xác định mối quan hệ giữa 
+các biến số trong một bộ dữ liệu. Mỗi giá trị trong ma trận tương quan phản ánh mức độ và hướng của 
+mối quan hệ giữa hai biến. Ma trận tương quan thường được sử dụng để hiểu rõ hơn về các yếu tố có 
+thể liên quan đến nhau, giúp đưa ra quyết định trong các mô hình phân tích tiếp theo, chẳng hạn như 
+hồi quy hoặc phân nhóm.
+
+1. Mục đích và cách thức hoạt động của ma trận tương quan
+    - Ma trận tương quan được sử dụng để tính toán độ mạnh và hướng của mối quan hệ tuyến tính giữa các cặp
+biến. Mỗi giá trị trong ma trận tương quan là một hệ số tương quan, thường được tính bằng hệ số Pearson. 
+Hệ số này có giá trị trong khoảng từ -1 đến +1:
+        +1: Có mối quan hệ hoàn toàn đồng biến (khi một biến tăng thì biến kia cũng tăng).
+        -1: Có mối quan hệ hoàn toàn nghịch biến (khi một biến tăng thì biến kia giảm).
+        0: Không có mối quan hệ tuyến tính giữa hai biến.
+    - Ma trận tương quan sẽ là một bảng vuông, trong đó mỗi ô chứa giá trị tương quan giữa hai biến. 
+Các biến được liệt kê ở cả hàng và cột, với giá trị trên đường chéo của ma trận luôn là 1 (vì mỗi biến 
+có tương quan hoàn hảo với chính nó).
+
+2. Ưu điểm của việc sử dụng ma trận tương quan
+    - Phát hiện mối quan hệ tiềm ẩn: Việc tính toán ma trận tương quan giúp nhận diện được những 
+mối quan hệ không rõ ràng mà có thể chưa nhận thấy khi chỉ nhìn vào dữ liệu riêng lẻ.
+    - Giảm thiểu đa cộng tuyến (Multicollinearity): Trong các mô hình hồi quy, ma trận tương quan giúp 
+xác định các biến có mối quan hệ mạnh với nhau. Nếu có sự tương quan quá cao giữa các biến, có thể loại 
+bỏ hoặc kết hợp chúng để tránh vấn đề đa cộng tuyến.
+    - Tối ưu hóa mô hình: Ma trận tương quan giúp lựa chọn các biến có liên quan mạnh mẽ đến nhau để 
+đưa vào mô hình phân tích, giúp tối ưu hóa các mô hình dự báo hoặc phân nhóm.
+
+3. Kết luận
+    Việc sử dụng ma trận tương quan giúp khám phá mối quan hệ giữa các biến số trong dữ liệu và đưa ra 
+các phân tích sâu sắc về các yếu tố ảnh hưởng đến Doanh thu, Ngân sách, Điểm trung bình, và các yếu tố 
+khác. Biểu đồ heatmap giúp trực quan hóa các mối quan hệ này, giúp người phân tích dễ dàng nhận diện 
+các xu hướng và đưa ra quyết định thông minh trong quá trình phân tích và dự báo.

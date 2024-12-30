@@ -1,0 +1,130 @@
+1. Giá trị trống (NaN hoặc Null)
+    - Nguyên nhân:
+        + Dữ liệu bị thiếu trong file gốc.
+        + Dữ liệu không hợp lệ hoặc không thể chuyển đổi, ví dụ: cột số chứa ký tự không phải số.
+    - Giải quyết:
+        + Xác định các cột bị ảnh hưởng bằng df.isnull().sum() để kiểm tra số lượng giá trị thiếu.
+        + Thay thế giá trị thiếu:
+            . Giá trị số: Thay thế bằng 0 hoặc giá trị trung bình (mean), trung vị (median), hoặc giá trị phổ biến nhất (mode).
+            . Giá trị chuỗi: Thay thế bằng chuỗi mặc định ("Không xác định" hoặc "N/A").
+
+2. Lỗi định dạng ngày tháng
+    - Nguyên nhân:
+        + Dữ liệu ngày tháng không đồng nhất (ví dụ: MM/DD/YYYY lẫn với DD/MM/YYYY).
+        + Dữ liệu không hợp lệ, ví dụ: "2024-02-30".
+    - Giải quyết:
+        + Sử dụng pd.to_datetime với tham số errors='coerce' để chuyển đổi ngày tháng, tự động gán NaT (Not a Time) cho các giá trị
+        không hợp lệ.
+        + Thay thế các giá trị không hợp lệ bằng ngày mặc định hoặc loại bỏ.
+
+3. Dữ liệu số chứa giá trị không hợp lệ
+    - Nguyên nhân:
+        Các cột số (như budget hoặc revenue) chứa ký tự hoặc chuỗi (ví dụ: "N/A", "Unknown").
+    - Giải quyết:
+        + Sử dụng pd.to_numeric với errors='coerce' để chuyển đổi. Các giá trị không hợp lệ sẽ được thay thế bằng NaN.
+        + Thay thế NaN sau khi chuyển đổi bằng giá trị phù hợp.
+
+4. Dữ liệu trùng lặp
+    - Nguyên nhân:
+        + Một số bản ghi bị trùng lặp, dẫn đến dữ liệu không chính xác.
+    - Giải quyết:
+        + Dùng df.duplicated() để phát hiện các bản ghi trùng lặp.
+        + Loại bỏ các dòng trùng lặp bằng df.drop_duplicates().
+
+5. Lỗi chính tả hoặc không thống nhất trong cột chuỗi
+    - Nguyên nhân:
+        Các giá trị chuỗi không nhất quán, ví dụ: "Action", "action", "ACTION".
+    - Giải quyết:
+        + Chuyển tất cả các chuỗi về chữ thường hoặc chữ hoa.
+        + Sử dụng thư viện như fuzzywuzzy để gộp các giá trị tương tự.    
+
+6. Dữ liệu ngoại lệ (outliers)
+    - Nguyên nhân:
+        Một số giá trị bất thường, ví dụ: budget = -100 hoặc revenue = 1,000,000,000,000.
+    - Giải quyết:
+        + Phát hiện ngoại lệ qua thống kê mô tả (describe) hoặc trực quan hóa (biểu đồ hộp boxplot).
+        + Loại bỏ hoặc điều chỉnh các giá trị ngoại lệ.
+
+7. Lỗi mã hóa dữ liệu
+    - Nguyên nhân:
+        File CSV có chứa ký tự đặc biệt hoặc không sử dụng mã hóa UTF-8.
+    - Giải quyết:
+        + Xác định mã hóa của file bằng công cụ như chardet.
+        + Đọc file CSV với mã hóa phù hợp.
+
+8. Dữ liệu không đồng nhất
+    - Nguyên nhân:
+        Các cột có giá trị dữ liệu không nhất quán, ví dụ: cột genres có giá trị như "Action|Comedy" trong khi một số khác lại 
+        là ["Action", "Comedy"].
+    - Giải quyết:
+        Chuẩn hóa dữ liệu, ví dụ: tách giá trị chuỗi thành danh sách.
+
+9. Cột không cần thiết hoặc dư thừa
+    - Nguyên nhân:
+        File CSV chứa các cột không liên quan đến mục tiêu phân tích.
+    - Giải quyết:
+        Xác định các cột không cần thiết và loại bỏ chúng để giảm kích thước dữ liệu và tăng hiệu quả xử lý.
+
+10. Tên cột không đồng nhất
+    - Nguyên nhân:
+        Tên cột chứa khoảng trắng, ký tự đặc biệt hoặc viết hoa, làm cho truy xuất dữ liệu khó khăn.
+    - Giải quyết:
+        Chuẩn hóa tên cột bằng cách chuyển về chữ thường và thay thế khoảng trắng hoặc ký tự đặc biệt bằng dấu gạch dưới.
+
+11. Dữ liệu bị phân tách sai do dấu phân cách
+    - Nguyên nhân:
+        File CSV sử dụng dấu phân cách khác (ví dụ: ; thay vì ,) hoặc có dữ liệu chứa dấu phân cách trong một ô 
+        (ví dụ: "Hello, World").
+    - Giải quyết:
+        + Xác định dấu phân cách đúng khi đọc file.
+        + Sử dụng tham số quotechar để xử lý dấu ngoặc kép bao quanh dữ liệu chứa dấu phân cách.
+
+12. Dữ liệu sai loại (Type Mismatch)
+    - Nguyên nhân:
+        Một cột chứa dữ liệu nhiều kiểu (ví dụ: cả số và chuỗi trong cột budget).
+    - Giải quyết:
+        Chuyển đổi kiểu dữ liệu về một định dạng nhất quán. Nếu không thể chuyển đổi, gán giá trị mặc định hoặc loại bỏ.    
+
+13. Dữ liệu không cân bằng giữa các lớp (Class Imbalance)
+    - Nguyên nhân:
+        Trong các bài toán phân loại, một lớp có số lượng mẫu vượt trội so với lớp khác, dẫn đến mô hình học thiên vị.
+    - Giải quyết:
+        Lấy mẫu lại dữ liệu bằng cách giảm kích thước lớp lớn (undersampling) hoặc tăng kích thước lớp nhỏ (oversampling).
+
+14. Giá trị ngoại lai không hợp lý
+    - Nguyên nhân:
+        Các giá trị cực đoan không hợp lý, ví dụ: budget = -5000, vote_average = 100.
+    - Giải quyết:
+        + Xác định giá trị ngoại lai qua các quy tắc thống kê (z-score, IQR). 
+        + Loại bỏ hoặc điều chỉnh.
+
+15. Dữ liệu bị thiếu hoàn toàn trong một cột
+    - Nguyên nhân:
+        Một số cột không chứa bất kỳ dữ liệu nào (toàn bộ là NaN).
+    - Giải quyết:
+        Xóa bỏ các cột không có giá trị sử dụng.
+
+16. Dữ liệu bị ràng buộc (Constraint Issues)
+    - Nguyên nhân:
+        Một số cột chứa dữ liệu không hợp lệ do vi phạm ràng buộc (ví dụ: revenue < budget).
+    - Giải quyết:
+        Lọc dữ liệu dựa trên điều kiện hợp lệ.
+
+17. Đơn vị đo không đồng nhất
+    - Nguyên nhân:
+        Các cột chứa dữ liệu với đơn vị đo khác nhau (ví dụ: runtime có phút lẫn giờ).
+    - Giải quyết:
+        Chuẩn hóa đơn vị đo về một định dạng thống nhất.
+
+
+18. File bị lỗi hoặc không thể đọc được
+    - Nguyên nhân:
+        File CSV có vấn đề như dòng rỗng, dòng không đồng nhất hoặc định dạng không chuẩn.
+    - Giải quyết:
+        Sử dụng các tham số bổ sung trong pd.read_csv như skip_blank_lines, error_bad_lines=False.
+
+19. Dữ liệu đa cấp hoặc phân cấp (Hierarchical Data)
+    - Nguyên nhân:
+        File CSV chứa dữ liệu đa cấp, ví dụ: cột được nhóm lại (MultiIndex).
+    - Giải quyết:
+        Xử lý dữ liệu phân cấp bằng cách đặt lại chỉ số hoặc làm phẳng cột.
