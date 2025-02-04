@@ -1,0 +1,55 @@
+1. Thập kỷ phát hành
+    - Trường hợp dữ liệu bị thiếu hoặc không hợp lệ: Nếu Năm phát hành bị thiếu (NaN) hoặc không phải số, phép chia sẽ gây lỗi. Do đó, cần kiểm tra giá trị trước khi xử lý.
+    - Giải pháp: Thêm xử lý để kiểm tra isna hoặc thay thế giá trị mặc định, ví dụ: df['Năm phát hành'].fillna(0).
+
+2. Hiệu suất doanh thu
+    - Trường hợp Ngân sách = 0: Sẽ xảy ra phép chia cho 0, dẫn đến giá trị không xác định (inf hoặc lỗi).
+    - Giải pháp: Xử lý trường hợp Ngân sách = 0 bằng cách thay thế hiệu suất thành 0.
+
+3. Thể loại chính
+    - Trường hợp Thể loại bị thiếu hoặc không đúng định dạng: Nếu giá trị không phải chuỗi hoặc None, việc gọi split sẽ gây lỗi.
+    - Giải pháp: Kiểm tra kiểu dữ liệu trước khi xử lý, và gán giá trị mặc định như 'unknown'.
+
+4. Mức độ phổ biến
+    - Trường hợp giá trị cực lớn: Nếu Độ phổ biến chứa giá trị vượt mức kỳ vọng, max_popularity sẽ điều chỉnh tự động để đảm bảo không bị lỗi trong quá trình chia khoảng.
+    - Giải pháp: Giới hạn hoặc kiểm tra trước các giá trị bất thường.
+
+5. Số lượng diễn viên
+    - Trường hợp Dàn diễn viên bị thiếu hoặc không đúng định dạng: Nếu giá trị không phải chuỗi, việc gọi split sẽ gây lỗi.
+    - Giải pháp: Kiểm tra kiểu dữ liệu và gán giá trị mặc định là 0.
+
+6. Mùa phát hành
+    - Trường hợp ngày không hợp lệ hoặc thiếu (NaN): Khi Ngày phát hành không đúng định dạng hoặc bị thiếu, việc chuyển đổi sang datetime sẽ thất bại.
+    - Giải pháp: Thêm xử lý lỗi trong pd.to_datetime và gán giá trị mặc định là 'unknown'.
+
+7. Loại thời lượng
+    - Trường hợp giá trị không hợp lệ hoặc bị thiếu (NaN): Nếu Thời lượng bị thiếu hoặc giá trị không hợp lệ, quá trình chia khoảng sẽ gặp lỗi.
+    - Giải pháp: Điền giá trị mặc định hoặc bỏ qua các giá trị không hợp lệ trước khi xử lý.
+
+8. Phân loại bình chọn
+    - Trường hợp giá trị Số lượt bình chọn bị thiếu hoặc âm: Khi NaN hoặc giá trị âm xuất hiện, các bin sẽ không xử lý chính xác.
+    - Giải pháp: Thay thế giá trị thiếu hoặc loại bỏ các giá trị không hợp lệ.
+
+9. Chênh lệch điều chỉnh
+    - Trường hợp Doanh thu điều chỉnh hoặc Ngân sách điều chỉnh bị thiếu: Giá trị kết quả sẽ là NaN.
+    - Giải pháp: Điền giá trị mặc định trước khi tính toán.
+
+10. Số phim của đạo diễn
+    - Trường hợp giá trị Đạo diễn bị thiếu hoặc không hợp lệ: Nếu Đạo diễn bị thiếu, việc đếm nhóm sẽ không chính xác.
+    - Giải pháp: Gán giá trị mặc định 'unknown'.
+
+11. Số lượng hãng sản xuất
+    - Trường hợp Hãng sản xuất bị thiếu hoặc không đúng định dạng: Nếu không phải chuỗi, việc đếm số lượng sẽ gây lỗi.
+    - Giải pháp: Kiểm tra kiểu dữ liệu trước và gán giá trị mặc định là 0.
+
+12. Số năm từ khi phát hành
+    - Trường hợp Năm phát hành bị thiếu hoặc lớn hơn năm hiện tại: Nếu dữ liệu không hợp lệ, phép trừ sẽ dẫn đến kết quả sai.
+    - Giải pháp: Loại bỏ các giá trị không hợp lệ trước khi tính toán.
+
+13. Đánh giá tổng quan phim
+    - Trường hợp Điểm trung bình bị thiếu hoặc không nằm trong khoảng [0, 10]: Kết quả sẽ không chính xác nếu không kiểm tra giá trị trước.
+    - Giải pháp: Xử lý giá trị thiếu và giới hạn giá trị trong phạm vi hợp lệ.
+
+14. Phim đa thể loại
+    - Trường hợp Thể loại bị thiếu hoặc không phải chuỗi: Kiểm tra '|' sẽ gây lỗi nếu giá trị không phải chuỗi.
+    - Giải pháp: Kiểm tra kiểu dữ liệu và gán giá trị mặc định 0.
